@@ -1,4 +1,5 @@
-# Copyright (C) 2012 The Android Open Source Project
+#
+# Copyright (C) 2014 The Android-x86 Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -11,14 +12,14 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#
 
-$(call inherit-product, device/generic/armv7-a-neon/mini_common.mk)
+# This file is executed by build/envsetup.sh, and can use anything
+# defined in envsetup.sh.
+#
+# In particular, you can add lunch options with the add_lunch_combo
+# function: add_lunch_combo generic-eng
 
-PRODUCT_NAME := mini_x86
-PRODUCT_DEVICE := x86
-PRODUCT_BRAND := Android
-PRODUCT_MODEL := Mini for x86
-
-# default is nosdcard, S/W button enabled in resource
-DEVICE_PACKAGE_OVERLAYS := device/generic/x86/overlay
-PRODUCT_CHARACTERISTICS := nosdcard
+add_lunch_combo android_x86-eng
+add_lunch_combo android_x86-userdebug
+add_lunch_combo android_x86-user
